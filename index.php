@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <!-- test -->
+<!-- test new f -->
 <html lang="ru">
 <head>
   <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
