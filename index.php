@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 
 <!-- test -->
+<<<<<<< HEAD
 <!-- test new f -->
+=======
+<!-- test 1 -->
+>>>>>>> master
 <html lang="ru">
 <head>
   <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
