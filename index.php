@@ -7,7 +7,11 @@
 <!-- test 1 -->
 >>>>>>> master
 <html lang="ru">
+
 <!-- test 123 -->
+
+<!-- test -->
+
 <head>
   <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
  <meta charset="utf-8">
