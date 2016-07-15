@@ -17,7 +17,7 @@
     <tr>
       <td class="w3-center w3-padding-64">        
        <div class="dimg">  
-        <img id="img" clas="img-thumbnail" src="<? echo $x; ?>" width="510" height="340"/>
+        <img id="img" clas="img-thumbnail" src="<?  $x; ?>" width="510" height="340"/>
         </div>
       </td>
     </tr>
