@@ -15,7 +15,7 @@
   
     $client_id = '5521905'; 
     $client_secret = 'yvdsxagXPOibU6eJwKGy'; 
-    $redirect_uri = 'http://cob.local/api4.php'; 
+    $redirect_uri = 'http://kobmem.xyz/api4.php'; 
     $group_id = '72782425';
 
     $url = 'http://oauth.vk.com/authorize';
@@ -80,7 +80,7 @@ $params = [
   
       //echo ($uploadUrl);
 
- $photo = (dirname(__FILE__)). $y;
+ $photo = (dirname(__FILE__)). $x;
 
 $ch = curl_init(); 
 curl_setopt($ch, CURLOPT_URL, $uploadUrl); 

@@ -119,7 +119,7 @@ if ($uploadOk == 0) {
                 fputs($f, $target_file); 
                 fclose($f);
               }
-        echo (file_get_contents('http://cob.local/workspace.php'));  
+        echo (file_get_contents('http://kobmem.xyz/workspace.php'));  
     } else {
         echo"<div class=\"w3-container w3-center w3-padding-128\" >";
           echo "Не получилось ='(";
