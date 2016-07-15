@@ -8,7 +8,10 @@
  	<title>KobMem</title>
  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
- 
+                         <!--progress bar-->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+                          <!--progress bar-->
 </head>
 <body style='background-image: url(imgs/background.jpg); background-size:cover '>
     <div class="w3-container w3-center w3-padding-128" >
@@ -23,6 +26,9 @@
         <p> 	
                <input class="btn btn-success  btn-file" type=submit name="submit" value="Загрузи картинку">
         </p>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar"  aria-valuemin="0" aria-valuemax="100" ></div>
+        </div>
        </form>
     </div>
 </body>
