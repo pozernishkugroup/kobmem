@@ -58,7 +58,7 @@ $url = 'https://oauth.vk.com/access_token';
 
 $url = 'https://api.vk.com/method/users.get';
   
-$userInfo = json_decode(file_get_contents($url . '?' . urldecode(http_build_query($params))), true);
+@$userInfo = json_decode(file_get_contents($url . '?' . urldecode(http_build_query($params))), true);
   
  if (isset($userInfo['response'][0]['uid'])) {
             $userInfo = $userInfo['response'][0];
@@ -72,7 +72,7 @@ $params = [
 
     $url = "https://api.vk.com/method/photos.getWallUploadServer";
     
-    $uploadUrl = json_decode(file_get_contents( $url . '?' . urldecode(http_build_query($params))), true);
+    @$uploadUrl = json_decode(file_get_contents( $url . '?' . urldecode(http_build_query($params))), true);
     
     if (isset($uploadUrl['response']['upload_url'])) {
         $uploadUrl = $uploadUrl['response']['upload_url'];
@@ -119,7 +119,7 @@ if (!empty($otvet['photo'])){
  
   $url = "https://api.vk.com/method/photos.saveWallPhoto";
   
-   $uploadRes = json_decode(file_get_contents( $url . '?' . urldecode (http_build_query($params))), true);
+   @$uploadRes = json_decode(file_get_contents( $url . '?' . urldecode (http_build_query($params))), true);
     
 if (!empty($uploadRes["response"][0]['id'])){
   $params = [
@@ -132,7 +132,7 @@ if (!empty($uploadRes["response"][0]['id'])){
   
   $url = "https://api.vk.com/method/wall.post";
   
-  $postId = json_decode(file_get_contents( $url . '?' . urldecode (http_build_query($params))), true);
+  @$postId = json_decode(file_get_contents( $url . '?' . urldecode (http_build_query($params))), true);
 
   
   if(!empty($postId['post_id'])){
