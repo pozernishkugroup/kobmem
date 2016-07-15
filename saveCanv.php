@@ -16,7 +16,7 @@ if(filesize('fvariable.php')==0){
       $fo = fopen("fvariable.php", "w+");
       fclose($fo);
       $f = fopen('fvariable.php', 'a+'); 
-      fputs($f, '<?$y=\'\\'.$file.'\'?>'); 
+      fputs($f, '<?$x=\''.$file.'\'?>'); 
       fclose($f);
     }
 if(filesize('apiVar.php')==0){
@@ -27,7 +27,7 @@ if(filesize('apiVar.php')==0){
       $fo = fopen("apiVar.php", "w+");
       fclose($fo);
       $f = fopen('apiVar.php', 'a+'); 
-      fputs($f, '<?$x=\''.$file.'\'?>'); 
+      fputs($f, '<?$y=\'\\'.$file.'\'?>'); 
       fclose($f);
     }
 ?>

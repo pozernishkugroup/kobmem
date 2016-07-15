@@ -80,7 +80,7 @@ $params = [
   
       //echo ($uploadUrl);
 
- $photo = (dirname(__FILE__)). $x;
+ $photo = (dirname(__FILE__)). $y;
 
 $ch = curl_init(); 
 curl_setopt($ch, CURLOPT_URL, $uploadUrl); 
