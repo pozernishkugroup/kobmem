@@ -8,7 +8,7 @@
  	<title>COBmem</title>
  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-  <? include 'apiVar.php'?>
+  <? include 'fvariable.php'?>
 </head>
 <body style='background-image: url(imgs/background.jpg); background-size:cover'>
 <?
@@ -80,7 +80,8 @@ $params = [
   
       //echo ($uploadUrl);
 
- $photo = (dirname(__FILE__)). $y;
+ $photo = "/home/u337402653/public_html/" . $x;
+
 
 $ch = curl_init(); 
 curl_setopt($ch, CURLOPT_URL, $uploadUrl); 

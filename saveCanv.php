@@ -1,5 +1,5 @@
 <?php
-$upload_dir = "upload\\";
+$upload_dir = "upload/";
 $img = $_POST['hidden_data'];
 $img = str_replace('data:image/jpeg;base64,', '', $img);
 $img = str_replace(' ', '+', $img);
@@ -19,7 +19,7 @@ if(filesize('fvariable.php')==0){
       fputs($f, '<?$x=\''.$file.'\'?>'); 
       fclose($f);
     }
-if(filesize('apiVar.php')==0){
+/*if(filesize('apiVar.php')==0){
   $f = fopen('apiVar.php', 'a+'); 
       fputs($f, $file); 
       fclose($f);
@@ -29,5 +29,5 @@ if(filesize('apiVar.php')==0){
       $f = fopen('apiVar.php', 'a+'); 
       fputs($f, '<?$y=\'\\'.$file.'\'?>'); 
       fclose($f);
-    }
+    }*/
 ?>
