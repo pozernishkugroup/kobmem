@@ -45,7 +45,7 @@ function wrapText(context, text, marginLeft, marginTop, maxWidth, lineHeight){
   var maxWidth = 470; //размер поле, где выводится текст
   var lineHeight = 32;
                       /*.........ТЕКСТ..1........*/
-        document.getElementById("mytext1").onkeydown = function() {pic()};
+        document.getElementById("mytext1").onkeypress = function() {pic()};
         function pic() {
         var cat = document.getElementById("img");
         context.drawImage(img, 0, 0, 510, 340);
@@ -68,7 +68,7 @@ function wrapText(context, text, marginLeft, marginTop, maxWidth, lineHeight){
         context.fillText(txt2, 245, 320);*/
         }; 
                       /*.........ТЕКСТ..2........*/
-        document.getElementById("mytext2").onkeydown = function() {pic2()};
+        document.getElementById("mytext2").onkeypress = function() {pic2()};
         function pic2() {
         var cat = document.getElementById("img");
         context.drawImage(img, 0, 0, 510, 340);
