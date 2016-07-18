@@ -1,19 +1,4 @@
-//ВЫВОД ТЕКСТА 1
-//            var txt1 = "";
-//            document.getElementById("mytext1").onkeypress = function() {text1()};
-//            function text1() {
-//              tx1 = document.getElementById("mytext1");
-//              tx1.value = tx1.value.toUpperCase();
-//              txt1 = tx1.value;
-//            }
-////ВЫВОД ТЕКСТА 2
-//            var txt2 = "";
-//            document.getElementById("mytext2").onkeypress = function() {text2()};
-//            function text2() {
-//              tx2 = document.getElementById("mytext2");
-//              tx2.value = tx2.value.toUpperCase();
-//              txt2 = tx2.value;
-//            }
+
           /*.........КАНВАС ОТРИСОВКА........*/
         window.onload = function() {
         var canvas = document.getElementById("can");
