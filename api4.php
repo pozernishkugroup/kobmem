@@ -82,7 +82,7 @@ $params = [
 
  $photo = "/home/u337402653/public_html/" . $x;
 
-$cfile = curl_file_create($photo,'image/png');
+
 
 $ch = curl_init(); 
 curl_setopt($ch, CURLOPT_URL, $uploadUrl); 
@@ -91,7 +91,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 //curl_setopt($ch, CURLOPT_SAFE_UPLOAD, 1); 
 //curl_setopt($ch, CURLPROTO_HTTPS, 1); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-curl_setopt($ch, CURLOPT_POSTFIELDS,  $cfile); 
+curl_setopt($ch, CURLOPT_POSTFIELDS,  $photo); 
 $otvet = json_decode(curl_exec($ch), true);
 
  if ($otvet === FALSE) {
