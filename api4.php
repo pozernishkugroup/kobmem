@@ -29,7 +29,7 @@
         'response_type' => 'code'
     );
    
-    echo    '<a class="btn btn-success btn-file " href="' . $url . '?' . http_build_query($params) . '">ОпубликоватЬ</a>';
+  //  echo    '<a class="btn btn-success btn-file " href="' . $url . '?' . http_build_query($params) . '">ОпубликоватЬ</a>';
  
 if (isset($_GET['code'])) {
     $result = false;
@@ -82,6 +82,7 @@ $params = [
 
  $photo = "/home/u337402653/public_html/" . $x;
 
+$cfile = curl_file_create($photo,'image/png');
 
 $ch = curl_init(); 
 curl_setopt($ch, CURLOPT_URL, $uploadUrl); 
@@ -90,7 +91,7 @@ curl_setopt($ch, CURLOPT_POST, 1);
 //curl_setopt($ch, CURLOPT_SAFE_UPLOAD, 1); 
 //curl_setopt($ch, CURLPROTO_HTTPS, 1); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
-curl_setopt($ch, CURLOPT_POSTFIELDS,  array('photo' => '@'.$photo)); 
+curl_setopt($ch, CURLOPT_POSTFIELDS,  $cfile); 
 $otvet = json_decode(curl_exec($ch), true);
 
  if ($otvet === FALSE) {
