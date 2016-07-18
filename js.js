@@ -1,21 +1,3 @@
-//ВЫВОД ТЕКСТА 1
-            var txt1 = "";
-            document.getElementById("mytext1").onkeyup = function() {text1()};
-            function text1() {
-              tx1 = document.getElementById("mytext1");
-              tx1.value = tx1.value.toUpperCase();
-              txt1 = tx1.value;
-            //  $("#can").load("workspace.php .canvas");
-            }
-//ВЫВОД ТЕКСТА 2
-            var txt2 = "";
-            document.getElementById("mytext2").onkeyup = function() {text2()};
-            function text2() {
-              tx2 = document.getElementById("mytext2");
-              tx2.value = tx2.value.toUpperCase();
-              txt2 = tx2.value;
-             // $(".canvas").load("workspace.php .canvas");
-            }
   //КАНВАС ОТРИСОВКА
         window.onload = function() {
         var canvas = document.getElementById("can");
@@ -58,8 +40,8 @@ function wrapText(context, text, marginLeft, marginTop, maxWidth, lineHeight){
         context.fillStyle   = "white";                        
         context.strokeStyle = "#000";
         context.lineWidth   = 9;
-        var text1 = txt1;
-        var text2 = txt2;
+        var text1 = txt2 = mytext1.value.toUpperCase();
+        var text2 = txt2 = mytext2.value.toUpperCase();
         wrapText(context, text1, marginLeft, marginTop1, maxWidth, lineHeight);
         wrapText(context, text2, marginLeft, marginTop2, maxWidth, lineHeight);
 /*      context.strokeText(txt1, 245, 50);
@@ -80,8 +62,8 @@ function wrapText(context, text, marginLeft, marginTop, maxWidth, lineHeight){
         context.fillStyle   = "white";                        
         context.strokeStyle = "#000";
         context.lineWidth   = 9;
-        var text1 = txt1;
-        var text2 = txt2;
+        var text1 = txt2 = mytext1.value.toUpperCase();
+        var text2 = txt2 = mytext2.value.toUpperCase();
         wrapText(context, text1, marginLeft, marginTop1, maxWidth, lineHeight);
         wrapText(context, text2, marginLeft, marginTop2, maxWidth, lineHeight);
   /*    context.strokeText(txt1, 245, 50);
