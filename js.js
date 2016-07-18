@@ -59,7 +59,7 @@ function wrapText(context, text, marginLeft, marginTop, maxWidth, lineHeight){
         context.fillStyle   = "white";                        
         context.strokeStyle = "#000";
         context.lineWidth   = 9;
-        var text1 = txt2 = mytext1.value.toUpperCase();
+        var text1 = mytext1.value.toUpperCase();
         var text2 = txt2 = mytext2.value.toUpperCase();
         wrapText(context, text1, marginLeft, marginTop1, maxWidth, lineHeight);
         wrapText(context, text2, marginLeft, marginTop2, maxWidth, lineHeight);
