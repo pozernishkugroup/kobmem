@@ -17,19 +17,14 @@
            <label  class="btn btn-success btn-lg btn-file">
               Выбери картинку 
               <input type="file" name=fileToUpload accept="image/jpeg,image/png,image/jpg,image/gif" style="display: none"><br>
-              <!-- <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" /> -->             
+               <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />              
            </label>
         </p>  
         <p> 	
-               <input class="btn btn-success  btn-file" type=submit name="submit" value="Загрузи картинку">
+            <input class="btn btn-success  btn-file" type=submit name="submit" value="Загрузи картинку">
         </p>
        </form>
     </div>
 </body>
 </html>				
 
-<!-- 
-file_uploads=On - разрешает загрузку файлов на сервер по протоколу HTTP;
-upload_tmp_dir=/tmp - устанавливает каталог для временного хранения загруженных файлов;
-upload_max_filesize=2M - устанавливает максимальный объем загружаемых файлов.
- -->

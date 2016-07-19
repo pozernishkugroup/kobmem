@@ -1,4 +1,4 @@
-<? //header('Location: workspace.php') ?>
+<?php session_start(); ?>
 <html lang="ru">
   <head>
     <meta charset="utf-8">
@@ -9,8 +9,9 @@
       <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   </head>
 <body style='background-image: url(imgs/background.jpg); background-size:cover '>
-<?
+<?php
 $target_dir = "uploads/";
+  
   ///////////////////Транслитерация строк./////////////////////////
 function rus2translit($string) {
     $converter = array(
@@ -41,88 +42,71 @@ function rus2translit($string) {
     return strtr($string, $converter);
 }
     
-    $name = rus2translit($_FILES["fileToUpload"]["name"]);
    
 //////////////////////////////////////////////////////////////////
+
+$name = rus2translit($_FILES["fileToUpload"]["name"]);
 $target_file = $target_dir . $name;
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     @$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-    if($check !== false) {
-        //echo "File is an image - " . $check["mime"] . ".";
+    if($check !== false) {        
         $uploadOk = 1;
-    } else {
+      } else {
       /*echo"<div class=\"w3-container w3-center w3-padding-128\" >";
       echo "File is not an image.";
       echo"</div>";*/
         $uploadOk = 0;
-    }
+      }
 }
-
 // Check if file already exists
 if (file_exists($target_file)) {
   echo"<div class=\"w3-container w3-center w3-padding-128\" >";
-      echo "<form  action=uploads.php method=post enctype=multipart/form-data>
-          <p>
+     echo "<form  action=uploads.php method=post enctype=multipart/form-data>
+            <p>
               \"<label class=\"btn btn-info btn-lg\">" .
-        "Файл с таким именем уже существует, просто переименуйте его =)" . 
-          "<input type=\"file\" name=fileToUpload accept=\"image/jpeg, image/png, image/jpg, image/gif\" style=\"display: none\">"."<br>" .
-               "<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"3000000\" />" .
-        "</label>" .
-          "</p>" .
+                "Файл с таким именем уже существует, просто переименуйте его =)" . 
+                  "<input type=\"file\" name=fileToUpload accept=\"image/jpeg, image/png, image/jpg, image/gif\" style=\"display: none\">"."<br>" .
+                 "<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=\"3000000\" />" .
+              "</label>" .
+            "</p>" .
             "<p>"  .	
-           "<input class=\"btn btn-success btn-file\" type=submit name=\"submit\" value=\"Загрузить\">" .
-      "</p>" .
-     "</form>";
+              "<input class=\"btn btn-success btn-file\" type=submit name=\"submit\" value=\"Загрузить\">" .
+            "</p>" .
+          "</form>";
   echo"</div>";
     $uploadOk = 0;
 }
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-  
- // echo"<div class=\"w3-container w3-center w3-padding-128\" >" .
-    "<form action='index.php'>"
-    . "<input class=\"btn btn-info btn-lg\" type=submit value=\"Принимаем только JPG, JPEG, PNG & GIF \">" .
-  "</form>" .
-  //  "</div>";
+&& $imageFileType != "gif" ) {  
+  echo"<div class=\"w3-container w3-center w3-padding-128\" >" .
+      "<form action='index.php'>".
+        "<input class=\"btn btn-info btn-lg\" type=submit value=\"Принимаем только JPG, JPEG, PNG & GIF \">" .
+      "</form>" .
+    "</div>";
     $uploadOk = 0;
 }     
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 3000000) {
   echo "<div class=\"w3-container w3-center w3-padding-128\" >" .
-    "<form action='index.php'>"
-    . "<input class=\"btn btn-info btn-lg\" type=submit value=\"Слишком тяжело ='(\">" .
-  "</form>" .
-    "</div>";
-    echo"</div>";
+        "<form action='index.php'>".
+          "<input class=\"btn btn-info btn-lg\" type=submit value=\"Слишком тяжело ='(\">" .
+        "</form>" .
+      "</div>";
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-//     echo"<div class=\"w3-container w3-center w3-padding-128\" >";
-//      echo "Sorry, your file was not uploaded.";
-//    echo"</div>";
-// if everything is ok, try to upload file
-} else {
+if ($uploadOk !== 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-              if(filesize('variable.php')==0){
-            $f = fopen('variable.php', 'a+'); 
-                fputs($f, $target_file); 
-                fclose($f);
-              }else{
-                $fo = fopen("variable.php", "w+");
-                fclose($fo);
-                $f = fopen('variable.php', 'a+'); 
-                fputs($f, $target_file); 
-                fclose($f);
-              }
-        echo (file_get_contents('http://kobmem.xyz/workspace.php'));  
+        $_SESSION['targetFile'] = $target_file;
+?>       <script>   window.location.href = "http://kobmem.xyz/workspace.php"; </script>
+<?         
     } else {
         echo"<div class=\"w3-container w3-center w3-padding-128\" >";
-          echo "Не получилось ='(";
+        echo "Не получилось ='(";
         echo"</div>";
     }
 }

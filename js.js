@@ -67,9 +67,7 @@ function wrapText(context, text, marginLeft, marginTop, maxWidth, lineHeight){
             
             };
         
-
-
-//КАНВАС СОХРАНЕНИЕ НА СЕРВ
+             /*..........КАНВАС СОХРАНЕНИЕ НА СЕРВ.......*/
               function uploadEx() {
                 var canvas = document.getElementById("can");
                 var dataURL = canvas.toDataURL("image/jpeg");
@@ -82,14 +80,10 @@ function wrapText(context, text, marginLeft, marginTop, maxWidth, lineHeight){
                 xhr.upload.onprogress = function(e) {
                     if (e.lengthComputable) {
                         var percentComplete = (e.loaded / e.total) * 100;
-                       // console.log(percentComplete + '% uploaded');
-                        //alert('Сделано');
                     }
-                };
- 
-                xhr.onload = function() {
- 
-                };
+                }; 
+                xhr.onload = function() {};
                 xhr.send(fd);
              };
+
 

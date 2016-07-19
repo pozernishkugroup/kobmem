@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html> 
 <head>
     <meta charset="utf-8">
@@ -7,7 +8,7 @@
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
       <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
   <script type="text/javascript" src="http://vk.com/js/api/share.js?93" charset="windows-1251"></script>
-  <? include 'fvariable.php'; 
+  <? 
      $client_id = '5521905'; 
     $client_secret = 'yvdsxagXPOibU6eJwKGy'; 
     $redirect_uri = 'http://kobmem.xyz/api4.php'; 
@@ -25,27 +26,22 @@
     );
  ?>
 </head>
-  
-  
-<body style='background-image: url(imgs/background.jpg); background-size:cover '>
-  <table>
-                              <!--КАРТИНКА-->
-    <tr>
+<body style='background-image: url(imgs/background.jpg); background-size:cover '> 
+  <table>                              
+    <tr>                <!--КАРТИНКА-->
       <td class="w3-center w3-padding-64">        
        <div class="dimg">  
-        <img id="img" clas="img-thumbnail" src="<? echo $x; ?>" width="510" height="340"/>
+        <img id="img" clas="img-thumbnail" src=" <? echo $_SESSION['memimg'];?> " width="510" height="340"/>
         </div>
       </td>
-    </tr>
-                            <!--КНОПКА ПУБЛИКАЦИИ-->
-    <tr>
+    </tr>                            
+    <tr>                <!--КНОПКА ПУБЛИКАЦИИ-->
       <td class="w3-center">
-         <form action="api4.php" class="w3-center w3-padding-16"> 
-        <?    echo    '<a class="btn btn-success btn-file " href="' . $url . '?' . http_build_query($params) . '">ОпубликоватЬ</a>'; ?>
-         </form> 
+        <form action="api4.php" class="w3-center w3-padding-16"> 
+          <?    echo    '<a class="btn btn-success btn-file " href="' . $url . '?' . http_build_query($params) . '">Опубликовать</a>'; ?>
+        </form> 
       </td>
-    </tr>
- 
+    </tr> 
   </table>
 </body>
 </html>

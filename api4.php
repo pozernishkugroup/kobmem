@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,7 +9,6 @@
  	<title>COBmem</title>
  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-  <? include 'fvariable.php'?>
 </head>
 <body style='background-image: url(imgs/background.jpg); background-size:cover'>
 <?
@@ -29,60 +29,52 @@
         'response_type' => 'code'
     );
    
-  //  echo    '<a class="btn btn-success btn-file " href="' . $url . '?' . http_build_query($params) . '">ОпубликоватЬ</a>';
+//  echo    '<a class="btn btn-success btn-file " href="' . $url . '?' . http_build_query($params) . '">ОпубликоватЬ</a>';
  
 if (isset($_GET['code'])) {
-    $result = false;
-  
+    $result = false;  
     $params = array(
         'client_id' => $client_id,
         'client_secret' => $client_secret,
         'redirect_uri' => $redirect_uri,
         'code' => $_GET['code']
     );
-
 };
 
-$url = 'https://oauth.vk.com/access_token';
+  $url = 'https://oauth.vk.com/access_token';
   
-@$token = json_decode(file_get_contents($url . '?' . urldecode(http_build_query($params))), true);
-    
+@$token = json_decode(file_get_contents($url . '?' . urldecode(http_build_query($params))), true);    
    
- if (isset($token['access_token'])) {
-        $params = array(
-        'user_id' => $token['user_id'],
-        'fields'  => 'user_id,first_name,last_name,screen_name,sex,bdate,photo_big',
-        'access_token' => $token['access_token']
-        );
-   }
+if (isset($token['access_token'])) {
+      $params = array(
+      'user_id' => $token['user_id'],
+      'fields'  => 'user_id,first_name,last_name,screen_name,sex,bdate,photo_big',
+      'access_token' => $token['access_token']
+      );
+}
 
-$url = 'https://api.vk.com/method/users.get';
+  $url = 'https://api.vk.com/method/users.get';
   
 @$userInfo = json_decode(file_get_contents($url . '?' . urldecode(http_build_query($params))), true);
   
- if (isset($userInfo['response'][0]['uid'])) {
+if (isset($userInfo['response'][0]['uid'])) {
             $userInfo = $userInfo['response'][0];
             $result = true;
-        }
-      
-$params = [
+}      
+    $params = [
     'group_id'     => $group_id,
-      'access_token' => $token['access_token']
-];
+    'access_token' => $token['access_token']
+    ];
 
     $url = "https://api.vk.com/method/photos.getWallUploadServer";
     
-    @$uploadUrl = json_decode(file_get_contents( $url . '?' . urldecode(http_build_query($params))), true);
+@$uploadUrl = json_decode(file_get_contents( $url . '?' . urldecode(http_build_query($params))), true);
     
     if (isset($uploadUrl['response']['upload_url'])) {
         $uploadUrl = $uploadUrl['response']['upload_url'];
         }
   
-      //echo ($uploadUrl);
-
- $photo = "/home/u337402653/public_html/" . $x;
-
-
+    $photo = "/home/u337402653/public_html/" . $_SESSION['memimg'];
 
 $ch = curl_init(); 
 curl_setopt($ch, CURLOPT_URL, $uploadUrl); 
@@ -102,12 +94,12 @@ $otvet = json_decode(curl_exec($ch), true);
 //var_dump($otvet);
  }  
 curl_close($ch); 
-            function stripslashes_deep($value){
-                $value = is_array($value) ?
-                            array_map('stripslashes_deep', $value) :
-                            stripslashes($value);
-                return $value;
-            }
+  function stripslashes_deep($value){
+      $value = is_array($value) ?
+                  array_map('stripslashes_deep', $value) :
+                  stripslashes($value);
+      return $value;
+  }
 
 if (!empty($otvet['photo'])){
   $params = [
@@ -121,7 +113,7 @@ if (!empty($otvet['photo'])){
  
   $url = "https://api.vk.com/method/photos.saveWallPhoto";
   
-   @$uploadRes = json_decode(file_get_contents( $url . '?' . urldecode (http_build_query($params))), true);
+@$uploadRes = json_decode(file_get_contents( $url . '?' . urldecode (http_build_query($params))), true);
     
 if (!empty($uploadRes["response"][0]['id'])){
   $params = [
@@ -134,12 +126,12 @@ if (!empty($uploadRes["response"][0]['id'])){
   
   $url = "https://api.vk.com/method/wall.post";
   
-  @$postId = json_decode(file_get_contents( $url . '?' . urldecode (http_build_query($params))), true);
+@$postId = json_decode(file_get_contents( $url . '?' . urldecode (http_build_query($params))), true);
 
   
-  if(!empty($postId['post_id'])){
-    echo ($postId['post_id']);
-  }  
+if(!empty($postId['post_id'])){
+  echo ($postId['post_id']);
+}  
   
 ?>  
 </body>
