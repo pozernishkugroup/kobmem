@@ -35,9 +35,9 @@
           </tr>
           <tr>                <!--КНОПКА СОХР-->                                        
             <td class="w3-center"> 
-               <form action="publik.php">
+               
                     <input onclick="uploadEx()" class="btn btn-success btn-lg" type=submit value="Сохранить">
-               </form>
+               
               <form method="post" accept-charset="utf-8" name="form1">
                     <input name="hidden_data" id='hidden_data' type="hidden"/>
               </form>
