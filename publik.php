@@ -37,11 +37,18 @@
     </tr>                            
     <tr>                <!--КНОПКА ПУБЛИКАЦИИ-->
       <td class="w3-center">
-        <form action="api4.php" class="w3-center w3-padding-16"> 
+        <form action="api4.php" class="w3-center"> 
           <?    echo    '<a class="btn btn-success btn-file " href="' . $url . '?' . http_build_query($params) . '">Опубликовать</a>'; ?>
         </form> 
       </td>
-    </tr> 
+    </tr>
+    <tr class="w3-center">
+      <td>
+        <form action="/index.php">
+          <button action="<? session_destroy()?>"  class="btn btn-success btn-lg">На главную</button>
+        </form>
+      </td>
+    </tr>
   </table>
 </body>
 </html>

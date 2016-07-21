@@ -41,7 +41,14 @@
                     <input name="hidden_data" id='hidden_data' type="hidden"/>
               </form>
             </td>
-        </tr>
+          </tr>
+          <tr>
+            <td>
+              <form action="/index.php" class="w3-center">
+                <button action="<? session_destroy()?>"  class="btn btn-success btn-lg">Загрузить другую картинку</button>
+              </form>
+            </td>
+          </tr>
         </table>
     </div>
 </body>

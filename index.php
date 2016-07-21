@@ -8,6 +8,7 @@
  	<title>KobMem</title>
  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?124"></script>
  
 </head>
 <body style='background-image: url(imgs/background.jpg); background-size:cover '>
@@ -25,6 +26,10 @@
         </p>
        </form>
     </div>
+    <div class="w3-container w3-center w3-padding-128" id="vk_groups"></div>
+      <script type="text/javascript">
+      VK.Widgets.Group("vk_groups", {redesign: 1, mode: 3, width: "220", height: "400", color1: 'FFFFFF', color2: '000000', color3: '5E81A8'}, 106420825);
+      </script>
+    </div>
 </body>
 </html>				
-

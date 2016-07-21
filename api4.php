@@ -18,7 +18,7 @@
     $redirect_uri = 'http://kobmem.xyz/api4.php'; 
     $group_id = '72782425';
 
-    $url = 'http://oauth.vk.com/authorize';
+/*    $url = 'http://oauth.vk.com/authorize';
 
     $params = array(
         'client_id'     => $client_id,
@@ -29,7 +29,7 @@
         'response_type' => 'code'
     );
    
-//  echo    '<a class="btn btn-success btn-file " href="' . $url . '?' . http_build_query($params) . '">ОпубликоватЬ</a>';
+  echo    '<a class="btn btn-success btn-file " href="' . $url . '?' . http_build_query($params) . '">ОпубликоватЬ</a>';*/
  
 if (isset($_GET['code'])) {
     $result = false;  
